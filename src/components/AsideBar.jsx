@@ -14,7 +14,7 @@ export default function AsideBar() {
                 </span>
                 <ul className="discover-sidebar__list">
                     <li className="discover-sidebar__item">
-                        <a href="/discover/wishlist">
+                        <a href="/best-of-the-year">
                             <span className="discover-sidebar__icon">
                                 <i class="bi bi-trophy-fill"></i>
                             </span>
