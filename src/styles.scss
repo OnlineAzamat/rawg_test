@@ -94,7 +94,10 @@ main.page__content {
             grid-template-columns: repeat(4, 1fr);
 
             .discover-columns__column {
-                height: 300px;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                min-height: 300px;
 
                 .game-card-medium {
                     transition: all 0.3s;
@@ -125,8 +128,20 @@ main.page__content {
 
                         .game-card-video {
                             position: relative;
+                            cursor: pointer;
+
+                            .game-card-back-photo {
+                                width: 100%;
+                                height: 100%;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
 
                             video {
+                                display: none;
                                 width: 100%;
                                 height: 100%;
                                 position: absolute;
@@ -147,6 +162,10 @@ main.page__content {
                             line-height: 28px;
                             font-size: 24px;
                             font-weight: 700;
+
+                            a.game-card-name:hover {
+                                color: rgba($color: #fff, $alpha: .7);
+                            }
                         }
 
                         .game-card-buttons {
@@ -209,9 +228,73 @@ main.page__content {
 
                         ul.game-card-about {
                             margin: 4px 0 0;
+                            list-style: none;
+                            & * {
+                                font-size: 14px;
+                            }
+
+                            .game-card-about__item {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: baseline;
+                                padding: 12px 0;
+                                border-bottom: 1px solid rgba(255,255,255,0.07);
+                                -webkit-box-pack: justify;
+                                -webkit-box-align: baseline;
+
+                                .game-card-about__term {
+                                    margin-right: 6px;
+                                    color: rgba(255,255,255,0.4);
+                                }
+                                .game-card-about__description {
+                                    text-align: right;
+                                }
+                            }
                         }
 
-                        ul.game-card-about, a.show-more-button, .show-more-button_game-card {
+                        a.show-more-button {
+                            position: relative;
+                            margin: 16px 0 0;
+                            padding: 12px 14px;
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border-radius: 8px;
+                            background-color: rgba(255,255,255,0.07);
+                            transition: all 0.3s;
+                            &:hover {
+                                span {
+                                    color: yellow;
+                                }
+                            }
+
+                            span {
+                                position: relative;
+                                flex: 1 1 auto;
+                                -webkit-box-flex: 1;
+                                transition: all 0.3s;
+                            }
+
+                            .show-more-button__icon {
+                                position: absolute;
+                                top: 50%;
+                                right: 14px;
+                                transform: translateY(-50%);
+                                width: 12px;
+                                height: 18px;
+                                display: block;
+                                // margin-left: 6px;
+                                opacity: .2;
+                                background-image: url('./assets/svg_icons/More_icon.svg');
+                                background-size: contain;
+                                background-position: 50%;
+                                background-repeat: no-repeat;
+                            }
+                        }
+
+                        
+                        ul.game-card-about, a.show-more-button, .show-more-button__icon {
                             display: none;
                         }
                     }
