@@ -112,6 +112,10 @@ main.page__content {
 
                         .game-card-medium__info .game-card-buttons .game-card-buttons__wishlist, .game-card-medium__info .game-card-buttons .game-card-buttons__all {
                             opacity: 1;
+
+                            i.bi-three-dots {
+                                color: #000;
+                            }
                         }
 
                         .game-card-medium__info ul.game-card-about, .game-card-medium__info a.show-more-button, .game-card-medium__info .show-more-button_game-card {
@@ -222,6 +226,10 @@ main.page__content {
 
                                 &.game-card-buttons__all {
                                     opacity: 0;
+
+                                    i {
+                                        color: #fff;
+                                    }
                                 }
                             }
                         }
