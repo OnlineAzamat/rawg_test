@@ -1,0 +1,373 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #fff;
+}
+
+body {
+    background-color: #151515;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 200px;
+
+    .logo {
+        position: relative;
+        display: flex;
+        gap: 10rem;
+
+        span {
+            display: block;
+            font-size: 3rem;
+            color: #fff;
+            font-weight: 900;
+            text-shadow: 0 1px 30px #fff;
+            user-select: none;
+        }
+        span.layn {
+            position: absolute;
+            z-index: -1;
+            width: calc(100% - 3rem);
+            height: fit-content;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 30px 3px #fff;
+            background-color: #fff;
+        }
+    }
+}
+
+img {
+    width: 200px;
+}
+
+@keyframes animate {
+
+    0%,
+    100% {
+        transform: translateZ(-100px);
+    }
+
+    50% {
+        transform: translateZ(100px);
+    }
+}
+
+aside {
+    height: calc(100% - 80px);
+}
+
+main.page__content {
+    padding: 0 40px;
+    display: flex;
+
+    .popular {
+        width: calc(100% - 200px);
+        max-width: 1920px;
+
+        h1 {
+            margin-bottom: 20px;
+        }
+    
+        .discover-columns {
+            width: 100%;
+            display: grid;
+            grid-gap: 0 24px;
+            grid-template-columns: repeat(4, 1fr);
+
+            .discover-columns__column {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                min-height: 300px;
+
+                .game-card-medium {
+                    transition: all 0.3s;
+                    transform: scale(1);
+                    background-color: #202020;
+                    border-radius: 12px;
+                    box-shadow: 0 10px 20px 0 rgb(0 0 0 / 7%);
+                    overflow: hidden;
+
+                    &:hover {
+                        transform: scale(1.02);
+
+                        .game-card-medium__info .game-card-buttons .game-card-buttons__wishlist, .game-card-medium__info .game-card-buttons .game-card-buttons__all {
+                            opacity: 1;
+                        }
+
+                        .game-card-medium__info ul.game-card-about, .game-card-medium__info a.show-more-button, .game-card-medium__info .show-more-button_game-card {
+                            display: block;
+                        }
+                    }
+
+                    .game-card-medium__media {
+                        width: 100%;
+                        height: 160px;
+                        overflow: hidden;
+                        border-top-left-radius: 12px;
+                        border-top-right-radius: 12px;
+
+                        .game-card-video {
+                            position: relative;
+                            cursor: pointer;
+
+                            .game-card-back-photo {
+                                width: 100%;
+                                height: 100%;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+
+                            video {
+                                display: none;
+                                width: 100%;
+                                height: 100%;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+
+                    .game-card-medium__info {
+                        padding: 16px 16px 24px;
+
+                        .game-card-heading {
+                            margin-bottom: 8px;
+                            padding-bottom: 2px;
+                            text-overflow: ellipsis;
+                            line-height: 28px;
+                            font-size: 24px;
+                            font-weight: 700;
+
+                            a.game-card-name:hover {
+                                color: rgba($color: #fff, $alpha: .7);
+                            }
+                        }
+
+                        .game-card-buttons {
+                            display: flex;
+                            align-items: center;
+
+                            button {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border-radius: 4px;
+                                min-width: 34px;
+                                min-height: 24px;
+                                margin-right: 4px;
+                                background-color: #ffffff1a;
+                                cursor: pointer;
+                                transition: all 0.3s;
+                                &:hover {
+                                    background-color: #fff;
+                                    color: #000;
+                                    span {
+                                        color: #151515;
+                                        svg {
+                                            fill: #151515;
+                                        }
+                                    }
+                                }
+                                
+                                svg {
+                                    width: 12px;
+                                    height: 12px;
+                                    fill: #fff;
+                                }
+                                
+                                &.game-card-buttons__add {
+                                    gap: 4px;
+                                    padding: 0 8px;
+                                    color: hsla(0, 0%, 100%, .4);
+                                    
+                                }
+
+                                &.game-card-buttons__wishlist {
+                                    opacity: 0;
+                                    span {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        svg {
+                                            width: 20px;
+                                            height: 20px;
+                                        }
+                                    }
+                                }
+
+                                &.game-card-buttons__all {
+                                    opacity: 0;
+                                }
+                            }
+                        }
+
+                        ul.game-card-about {
+                            margin: 4px 0 0;
+                            list-style: none;
+                            & * {
+                                font-size: 14px;
+                            }
+
+                            .game-card-about__item {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: baseline;
+                                padding: 12px 0;
+                                border-bottom: 1px solid rgba(255,255,255,0.07);
+                                -webkit-box-pack: justify;
+                                -webkit-box-align: baseline;
+
+                                .game-card-about__term {
+                                    margin-right: 6px;
+                                    color: rgba(255,255,255,0.4);
+                                }
+                                .game-card-about__description {
+                                    text-align: right;
+                                }
+                            }
+                        }
+
+                        a.show-more-button {
+                            position: relative;
+                            margin: 16px 0 0;
+                            padding: 12px 14px;
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            border-radius: 8px;
+                            background-color: rgba(255,255,255,0.07);
+                            transition: all 0.3s;
+                            &:hover {
+                                span {
+                                    color: yellow;
+                                }
+                            }
+
+                            span {
+                                position: relative;
+                                flex: 1 1 auto;
+                                -webkit-box-flex: 1;
+                                transition: all 0.3s;
+                            }
+
+                            .show-more-button__icon {
+                                position: absolute;
+                                top: 50%;
+                                right: 14px;
+                                transform: translateY(-50%);
+                                width: 12px;
+                                height: 18px;
+                                display: block;
+                                // margin-left: 6px;
+                                opacity: .2;
+                                background-image: url('./assets/svg_icons/More_icon.svg');
+                                background-size: contain;
+                                background-position: 50%;
+                                background-repeat: no-repeat;
+                            }
+                        }
+
+                        
+                        ul.game-card-about, a.show-more-button, .show-more-button__icon {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    div.avatar {
+        background-image: url('https: //media.rawg.io/media/resize/80/-/avatars/2f1/2f106ab3ed042a89bfcd551f4551f8ba.jpg');
+    }
+
+    .asidebar {
+        height: calc(100vh - 80px);
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        min-width: 200px;
+        margin-right: 20px;
+
+        .discover-sidebar__menu {
+
+            span.discover-sidebar__title {
+                display: block;
+                font-size: 24px;
+                line-height: 28px;
+                font-weight: 700;
+                margin-bottom: 16px;
+            }
+
+            ul.discover-sidebar__list {
+                list-style: none;
+                margin: 0 0 24px;
+
+                li {
+                    margin-bottom: 8px;
+
+                    a {
+                        display: flex;
+                        align-items: center;
+
+                        span.discover-sidebar__icon {
+                            display: flex;
+                            flex: 0 1 auto;
+                            align-items: center;
+                            justify-content: center;
+                            transition: all 0.3s;
+                            width: 32px; height: 32px;
+                            margin-right: 8px;
+                            border-radius: 6px;
+                            background-color: rgba($color: #fff, $alpha: .1);
+
+                            svg {
+                                width: 18px;
+                                height: 18px;
+                                fill: #fff;
+                            }
+                        }
+
+                        &:hover span.discover-sidebar__icon {
+                            background-color: #fff;
+                            i {
+                                color: #151515;
+                            }
+                            svg {
+                                fill: #151515;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
