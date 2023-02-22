@@ -97,7 +97,10 @@ main.page__content {
                 display: flex;
                 flex-direction: column;
                 gap: 24px;
-                min-height: 300px;
+
+                .game-inner-wrapper {
+                    position: relative;
+                
 
                 .game-card-medium {
                     transition: all 0.3s;
@@ -158,6 +161,26 @@ main.page__content {
 
                     .game-card-medium__info {
                         padding: 16px 16px 24px;
+
+                        .game-card-medium__plaforms {
+                            display: flex;
+                            margin-bottom: 7px;
+                            align-items: center;
+                            justify-content: flex-start;
+
+                            .game-card-medium__platforms {
+                                display: inline-flex;
+                                flex: 1 1 auto;
+
+                                .platforms_platform {
+                                    margin-right: 6px;
+                                    line-height: 0;
+                                    background-repeat: no-repeat;
+                                    background-position: 50%;
+                                    background-size: contain;
+                                }
+                            }
+                        }
 
                         .game-card-heading {
                             margin-bottom: 8px;
@@ -306,6 +329,7 @@ main.page__content {
                             display: none;
                         }
                     }
+                }
                 }
             }
         }
