@@ -19,7 +19,7 @@ export default function Rating() {
     }
     return(
         <div className="popular">
-            <h1>Rating</h1>
+            <h1>Rating APP</h1>
 
             <br />
 
