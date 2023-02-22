@@ -33,7 +33,11 @@ export default function Popular() {
                                 return(
                                 <GameCardMedium 
                                 gameName={item.name}
-                                added={item.added > 999 ? item.added / 1000 : item.added}
+                                added={
+                                    item.added > 999 ? 
+                                    Math.floor(item.added / 1000) + "," + item.added % 1000 : 
+                                    item.added
+                                }
                                 imgSrc={item.background_image} 
                                 date={item.released} 
                                 genres={
@@ -52,7 +56,11 @@ export default function Popular() {
                                 return(
                                 <GameCardMedium 
                                 gameName={item.name}
-                                added={item.added > 999 ? item.added / 1000 : item.added}
+                                added={
+                                    item.added > 999 ? 
+                                    Math.floor(item.added / 1000) + "," + item.added % 1000 : 
+                                    item.added
+                                }
                                 imgSrc={item.background_image} 
                                 date={item.released} 
                                 genres={
@@ -70,7 +78,11 @@ export default function Popular() {
                                 return(
                                 <GameCardMedium 
                                 gameName={item.name}
-                                added={item.added}
+                                added={
+                                    item.added > 999 ? 
+                                    Math.floor(item.added / 1000) + "," + item.added % 1000 : 
+                                    item.added
+                                }
                                 imgSrc={item.background_image} 
                                 date={item.released} 
                                 genres={
@@ -88,7 +100,11 @@ export default function Popular() {
                                 return(
                                 <GameCardMedium 
                                 gameName={item.name}
-                                added={item.added}
+                                added={
+                                    item.added > 999 ? 
+                                    Math.floor(item.added / 1000) + "," + item.added % 1000 : 
+                                    item.added
+                                }
                                 imgSrc={item.background_image} 
                                 date={item.released} 
                                 genres={
