@@ -44,7 +44,6 @@ export default function Popular() {
                                     item.genres[0].name
                                 }
                                 chart={item.rating_top}
-                                item={item}
                                 key={index + item.added} />
                                 )
                             }) : <Loading />

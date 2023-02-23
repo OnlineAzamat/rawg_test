@@ -403,3 +403,17 @@ main.page__content {
     }
 }
 
+@media (max-width: 980px) {
+    .discover-columns {
+        grid-gap: 0 20px;
+        grid-template-columns: repeat(3, 1fr);
+
+        .discover-columns__column:nth-child(4) {
+            display: none;
+        }
+    }
+}
+
+body {
+    overflow-x: scroll;
+}

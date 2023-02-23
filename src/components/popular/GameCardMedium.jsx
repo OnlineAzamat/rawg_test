@@ -7,22 +7,6 @@ import axios from "axios";
 const api_key = API_KEY;
 
 export default function GameCardMedium({ gameName, imgSrc, date, genres, chart, added }) {
-    // Usilardi qostim 21:17 de ------>
-    const [platforma, setPlatforms] = useState([]);
-
-    useEffect(() => {getPlatforms()}, [])
-
-    async function getPlatforms() {
-        await axios.get(`https://api.rawg.io/api/games?key=${api_key}&dates=2019-01-01,2019-12-31&ordering=-added`)
-            .then(res => {
-                console.log(res)
-                setPlatforms(res.data.results.platforms)
-            })
-            .catch(err => console.log(err))
-    }
-
-    // <-------------------|
-
     return(
         <div className="game-inner-wrapper">
             <div className="game-card-medium">
@@ -35,19 +19,6 @@ export default function GameCardMedium({ gameName, imgSrc, date, genres, chart, 
                     </div>
                 </div>
                 <div className="game-card-medium__info">
-                    <div className="game-card-medium__meta">
-                        <div className=
-                        // Shigiwi kerek usi klasslar
-                        {`game-card-medium__platforms 
-                            ${
-                                platforma.map((item) => {
-                                    item.platform.slug == "xbox-one" ? "plaforms_platform_xbox" : item.platform.slug == "pc" ? "plaforms_platform_pc" :
-                                    item.platform.slug == "playstation4" ? 
-                                    "plaforms_platform_playstation" : "plaforms_platform_xbox"
-                                })
-                            }`}>
-                        </div>
-                    </div>
                     <div className="game-card-heading">
                         <a href="/:id" className="game-card-name">
                             {gameName}
