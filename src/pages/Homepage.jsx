@@ -1,6 +1,6 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import AsideBar from '../components/AsideBar';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/Navbar';
 import Popular from './Popular';
 
 export default function Navbar() {
